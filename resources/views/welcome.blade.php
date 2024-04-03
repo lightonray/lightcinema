@@ -36,7 +36,7 @@
 
       <div class="overlay" data-overlay></div>
 
-      <a href="./index.html" class="logo">
+      <a href="/" class="logo">
         <h1 style="color: yellow">LightCinema</h1>
       </a>
 
@@ -88,7 +88,7 @@
 
         </div>
 
-        <ul class="navbar-list">
+        {{-- <ul class="navbar-list">
 
           <li>
             <a href="./index.html" class="navbar-link">Home</a>
@@ -110,7 +110,7 @@
             <a href="#" class="navbar-link">Pricing</a>
           </li>
 
-        </ul>
+        </ul> --}}
 
         <ul class="navbar-social-list">
 
