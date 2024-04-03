@@ -60,6 +60,9 @@
         </div>
 
         @if (Auth::check())
+          <ul class="navbar-list">
+            <a href="#"><button class="btn btn-primary">Add a movie</button></a>
+          </ul>
           <form action="{{ route('logout') }}" method="POST">
               @csrf
               <button type="submit" class="btn btn-primary">Sign out</button>
@@ -170,7 +173,7 @@
             <p class="hero-subtitle">LightCinema</p>
 
             <h1 class="h1 hero-title">
-              Gateway <strong>to</strong>, Cinematic Delights.
+              Largest <strong>Movie</strong>, Database.
             </h1>
 
             {{-- <div class="meta-wrapper">
@@ -497,7 +500,7 @@
 
           <p class="section-subtitle">Largest Movie Database</p>
 
-          <h2 class="h2 section-title">Our Movie Database Collection</h2>
+          <h2 class="h2 section-title">Our Database Collection</h2>
 
           <ul class="filter-list">
 
