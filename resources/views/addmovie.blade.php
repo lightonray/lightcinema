@@ -166,27 +166,30 @@
                 <h1 class="h2 section-title">
                     Add a movie to our database
                 </h1>
-                <form  action="#" method="POST">
-                    @csrf
-                    <label for="title">Title:</label><br>
-                    <input  type="text" id="title" name="title"><br>
-
-                    <label for="description">Description:</label><br>
-                    <textarea id="description" name="description" rows="4" cols="50"></textarea><br>
-
-                    <label for="release_date">Release Date:</label><br>
-                    <input type="date" id="release_date" name="release_date"><br>
-
-                    <label for="duration">Duration (minutes):</label><br>
-                    <input type="number" id="duration" name="duration" min="1"><br>
-
-                    <label for="image">Choose Image:</label><br>
-                    <input type="file" id="image" name="image"><br><br>
-
-                    <div style="display:flex; justify-content:center;">
-                        <button class="btn btn-primary" type="submit">Add Movie</button>
-                    </div>
-                </form>
+                <div class="form-container">
+                  <form action="#" method="POST">
+                      @csrf
+                      <label for="title">Title:</label><br>
+                      <input type="text" id="title" name="title"><br>
+              
+                      <label for="description">Description:</label><br>
+                      <textarea id="description" name="description" rows="4" cols="50"></textarea><br>
+              
+                      <label for="release_date">Release Date:</label><br>
+                      <input type="date" id="release_date" name="release_date"><br>
+              
+                      <label for="duration">Duration (minutes):</label><br>
+                      <input type="number" id="duration" name="duration" min="1"><br>
+              
+                      <label for="image" class="file-input-label">Choose Image</label>
+                      <input type="file" id="image" name="image" class="file-input" accept="image/*">
+              
+                      <div style="display:flex; justify-content:center;">
+                          <button class="btn btn-primary" id="add-movie" type="submit">Add Movie</button>
+                      </div>
+                  </form>
+              </div>
+              
             </div>
             </div>
         </div>

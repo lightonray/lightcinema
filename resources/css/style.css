@@ -1596,3 +1596,66 @@ body.active { overflow: hidden; }
   }
 
 }
+
+
+
+.form-container {
+  background-color: var(--citrine);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: auto;
+  margin-top: 50px;
+  color: black;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+input[type="date"],
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+
+.file-input-label {
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.file-input-label:hover {
+  background-color: black;
+  color: white;
+}
+
+.file-input {
+  display: none;
+}
+
+button#add-movie:hover {
+  background-color: black;
+  color: white;
+}
