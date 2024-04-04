@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
      /**
      * Display the form for adding a new movie.
      *
@@ -51,5 +56,11 @@ class MovieController extends Controller
         $movie->save();
 
         return redirect()->back()->with('success', 'Movie added successfully!');
+    }
+
+
+    public function movieDetailsPage()
+    {
+        return view('movie-details');
     }
 }

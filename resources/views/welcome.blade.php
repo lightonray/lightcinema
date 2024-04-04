@@ -81,7 +81,7 @@
 
         <div class="navbar-top">
 
-          <a href="./index.html" class="logo">
+          <a href="/" class="logo">
             <h1>LightCinema</h1>
           </a>
 
@@ -527,14 +527,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="{{ route('moviedetails-index') }}">
                   <figure class="card-banner">
                     <img src="{{ asset('images/movie-1.png') }}" alt="Sonic the Hedgehog 2 movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="{{ route('moviedetails-index') }}">
                     <h3 class="card-title">Sonic the Hedgehog 2</h3>
                   </a>
 
@@ -563,14 +563,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="{{ route('moviedetails-index') }}">
                   <figure class="card-banner">
                     <img src="{{ asset('images/movie-2.png') }}" alt="Morbius movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="{{ route('moviedetails-index') }}">
                     <h3 class="card-title">Morbius</h3>
                   </a>
 
@@ -599,14 +599,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="{{ route('moviedetails-index') }}">
                   <figure class="card-banner">
                     <img src="{{ asset('images/movie-3.png') }}" alt="The Adam Project movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="{{ route('moviedetails-index') }}">
                     <h3 class="card-title">The Adam Project</h3>
                   </a>
 
@@ -635,14 +635,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="{{ route('moviedetails-index') }}">
                   <figure class="card-banner">
                     <img src="{{ asset('images/movie-5.png') }}" alt="Free Guy movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="{{ route('moviedetails-index') }}">
                     <h3 class="card-title">Free Guy</h3>
                   </a>
 
@@ -671,14 +671,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="{{ route('moviedetails-index') }}">
                   <figure class="card-banner">
                     <img src="{{ asset('images/movie-5.png') }}" alt="The Batman movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="{{ route('moviedetails-index') }}">
                     <h3 class="card-title">The Batman</h3>
                   </a>
 
@@ -707,14 +707,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="{{ route('moviedetails-index') }}">
                   <figure class="card-banner">
                     <img src="{{ asset('images/movie-6.png') }}" alt="Uncharted movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="{{ route('moviedetails-index') }}">
                     <h3 class="card-title">Uncharted</h3>
                   </a>
 
@@ -743,14 +743,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="{{ route('moviedetails-index') }}">
                   <figure class="card-banner">
                     <img src="{{ asset('images/movie-7.png') }}" alt="Death on the Nile movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="{{ route('moviedetails-index') }}">
                     <h3 class="card-title">Death on the Nile</h3>
                   </a>
 
@@ -779,14 +779,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="{{ route('moviedetails-index') }}">
                   <figure class="card-banner">
                     <img src="{{ asset('images/movie-8.png') }}" alt="The King's Man movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="{{ route('moviedetails-index') }}">
                     <h3 class="card-title">The King's Man</h3>
                   </a>
 
@@ -1029,14 +1029,14 @@
 
         <div class="footer-brand-wrapper">
 
-          <a href="./index.html" class="logo">
+          <a href="/" class="logo">
             <h1 style="color: yellow">LightCinema</h1>
           </a>
 
           <ul class="footer-list">
 
             <li>
-              <a href="./index.html" class="footer-link">Home</a>
+              <a href="/" class="footer-link">Home</a>
             </li>
 
             <li>
