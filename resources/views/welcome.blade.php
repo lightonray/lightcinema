@@ -61,7 +61,7 @@
 
         @if (Auth::check())
           <ul class="navbar-list">
-            <a href="#"><button class="btn btn-primary">Add a movie</button></a>
+            <a href="{{ route('addmovie-index') }}"><button class="btn btn-primary">Add a movie</button></a>
           </ul>
           <form action="{{ route('logout') }}" method="POST">
               @csrf

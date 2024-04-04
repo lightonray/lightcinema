@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MovieController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 
 /*
@@ -23,5 +24,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->middleware(RedirectIfAuthenticated::class)->name('home');
-
+Route::get('/addmovie', [MovieController::class, 'adMoviePage'])->name('addmovie-index');
 
