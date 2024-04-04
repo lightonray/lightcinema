@@ -25,4 +25,4 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->middleware(RedirectIfAuthenticated::class)->name('home');
 Route::get('/addmovie', [MovieController::class, 'adMoviePage'])->name('addmovie-index');
-
+Route::post('/createmovie', [MovieController::class, 'addMovie'])->name('movie.store');

@@ -167,7 +167,7 @@
                     Add a movie to our database
                 </h1>
                 <div class="form-container">
-                  <form action="#" method="POST">
+                  <form action="{{ route('movie.store') }}" method="POST">
                       @csrf
                       <label for="title">Title:</label><br>
                       <input type="text" id="title" name="title"><br>
