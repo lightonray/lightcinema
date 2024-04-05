@@ -1,3 +1,6 @@
 import './bootstrap';
 import './script';
-import './uploadImage';
+
+if(document.querySelector(".form-container") != undefined){
+    import ('./uploadImage');
+}

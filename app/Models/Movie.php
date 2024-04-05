@@ -19,7 +19,7 @@ class Movie extends Model
         'description',
         'release_date',
         'duration',
-        'images',
+        'image',
         'user_id',
         'category_id'
     ];
