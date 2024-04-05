@@ -12,7 +12,7 @@
 
           <figure class="movie-detail-banner">
 
-            <img src="{{ asset('images/movie-4.png') }}" alt="Free guy movie poster">
+            <img src="{{ asset('images/'.$movie->image) }}" alt="{{ $movie->title }} ">
 
             <button class="play-btn">
               <ion-icon name="play-circle-outline"></ion-icon>
@@ -22,10 +22,10 @@
 
           <div class="movie-detail-content">
 
-            <p class="detail-subtitle">New Episodes</p>
+            {{-- <p class="detail-subtitle">New Episodes</p> --}}
 
             <h1 class="h1 detail-title">
-              Free <strong>Guy</strong>
+              {{ $movie->title }}
             </h1>
 
             <div class="meta-wrapper">
@@ -51,13 +51,13 @@
                 <div>
                   <ion-icon name="calendar-outline"></ion-icon>
 
-                  <time datetime="2021">2021</time>
+                  <time datetime="{{ $movie->release_date }}">{{ $movie->release_date }}</time>
                 </div>
 
                 <div>
                   <ion-icon name="time-outline"></ion-icon>
 
-                  <time datetime="PT115M">115 min</time>
+                  <time datetime="PT{{ $movie->duration }}M">{{ $movie->duration }} min</time>
                 </div>
 
               </div>
@@ -65,9 +65,7 @@
             </div>
 
             <p class="storyline">
-              A bank teller called Guy realizes he is a background character in an open world video game called Free
-              City that will
-              soon go offline.
+              {{ $movie->description}}
             </p>
 
             <div class="details-actions">

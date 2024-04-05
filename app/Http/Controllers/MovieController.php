@@ -49,7 +49,7 @@ class MovieController extends Controller
         $movie->description = $validatedData['description'];
         $movie->release_date = $validatedData['release_date'];
         $movie->duration = $validatedData['duration'];
-        $movie->images = $validatedData['image'];
+        $movie->image = $validatedData['image'];
 
         $movie->user_id = Auth::id();
 
@@ -59,8 +59,10 @@ class MovieController extends Controller
     }
 
 
-    public function movieDetailsPage()
+    public function movieDetailsPage($id)
     {
-        return view('movie-details');
+        $movie = Movie::findOrFail($id);
+
+        return view('movie-details', compact('movie'));
     }
 }
