@@ -108,159 +108,46 @@
 
       <section class="tv-series">
         <div class="container">
-
-          <p class="section-subtitle">Best TV Series</p>
-
-          <h2 class="h2 section-title">World Best TV Series</h2>
-
-          <ul class="movies-list">
-
-            <li>
-              <div class="movie-card">
-
-                <a href="./movie-details.html">
-                  <figure class="card-banner">
-                    <img src="{{ asset('images/series-1.png') }}" alt="Moon Knight movie poster">
-                  </figure>
-                </a>
-
-                <div class="title-wrapper">
-                  <a href="./movie-details.html">
-                    <h3 class="card-title">Moon Knight</h3>
-                  </a>
-
-                  <time datetime="2022">2022</time>
-                </div>
-
-                <div class="card-meta">
-                  <div class="badge badge-outline">2K</div>
-
-                  <div class="duration">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="PT47M">47 min</time>
+          <h2 style="color: yellow; padding: 20px">User Comments</h2>
+          <div class="comments">
+              <!-- Dummy comments -->
+              <div class="comment">
+                  <div class="comment-content">
+                      <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae urna ac velit consequat fermentum. Integer vel ante eget leo ullamcorper efficitur.</p>
+                      <p class="comment-meta">Posted by John Doe on April 5, 2024</p>
                   </div>
-
-                  <div class="rating">
-                    <ion-icon name="star"></ion-icon>
-
-                    <data>8.6</data>
-                  </div>
-                </div>
-
               </div>
-            </li>
-
-            <li>
-              <div class="movie-card">
-
-                <a href="./movie-details.html">
-                  <figure class="card-banner">
-                    <img src="{{ asset('images/series-2.png') }}" alt="Halo movie poster">
-                  </figure>
-                </a>
-
-                <div class="title-wrapper">
-                  <a href="./movie-details.html">
-                    <h3 class="card-title">Halo</h3>
-                  </a>
-
-                  <time datetime="2022">2022</time>
-                </div>
-
-                <div class="card-meta">
-                  <div class="badge badge-outline">2K</div>
-
-                  <div class="duration">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="PT59M">59 min</time>
+              <div class="comment">
+                  <div class="comment-content">
+                      <p class="comment-text">Ut efficitur magna et libero interdum, quis posuere purus tempus. Integer eget turpis at lorem finibus congue nec sed eros.</p>
+                      <p class="comment-meta">Posted by Jane Doe on April 6, 2024</p>
                   </div>
-
-                  <div class="rating">
-                    <ion-icon name="star"></ion-icon>
-
-                    <data>8.8</data>
-                  </div>
-                </div>
-
               </div>
-            </li>
-
-            <li>
-              <div class="movie-card">
-
-                <a href="./movie-details.html">
-                  <figure class="card-banner">
-                    <img src="{{ asset('images/series-3.png') }}" alt="Vikings: Valhalla movie poster">
-                  </figure>
-                </a>
-
-                <div class="title-wrapper">
-                  <a href="./movie-details.html">
-                    <h3 class="card-title">Vikings: Valhalla</h3>
-                  </a>
-
-                  <time datetime="2022">2022</time>
+              <div class="comment">
+                <div class="comment-content">
+                    <p class="comment-text">Ut efficitur magna et libero interdum, quis posuere purus tempus. Integer eget turpis at lorem finibus congue nec sed eros.</p>
+                    <p class="comment-meta">Posted by Jane Doe on April 6, 2024</p>
                 </div>
-
-                <div class="card-meta">
-                  <div class="badge badge-outline">2K</div>
-
-                  <div class="duration">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="PT51M">51 min</time>
-                  </div>
-
-                  <div class="rating">
-                    <ion-icon name="star"></ion-icon>
-
-                    <data>8.3</data>
-                  </div>
-                </div>
-
+            </div>
+            <div class="comment">
+              <div class="comment-content">
+                  <p class="comment-text">Ut efficitur magna et libero interdum, quis posuere purus tempus. Integer eget turpis at lorem finibus congue nec sed eros.</p>
+                  <p class="comment-meta">Posted by Jane Doe on April 6, 2024</p>
               </div>
-            </li>
-
-            <li>
-              <div class="movie-card">
-
-                <a href="./movie-details.html">
-                  <figure class="card-banner">
-                    <img src="{{ asset('images/series-4.png') }}" alt="Money Heist movie poster">
-                  </figure>
-                </a>
-
-                <div class="title-wrapper">
-                  <a href="./movie-details.html">
-                    <h3 class="card-title">Money Heist</h3>
-                  </a>
-
-                  <time datetime="2017">2017</time>
-                </div>
-
-                <div class="card-meta">
-                  <div class="badge badge-outline">4K</div>
-
-                  <div class="duration">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="PT70M">70 min</time>
-                  </div>
-
-                  <div class="rating">
-                    <ion-icon name="star"></ion-icon>
-
-                    <data>8.3</data>
-                  </div>
-                </div>
-
+          </div>
+             
+              <!-- End of dummy comments -->
+          </div>
+          
+          <!-- Comment form -->
+          <form id="comment-form">
+              <div class="form-group">
+                  <textarea style="padding: 10px" class="form-control" id="comment-input" rows="3" placeholder="Write your comment here"></textarea>
               </div>
-            </li>
-
-          </ul>
-
+              <button type="submit" class="btn btn-primary">Comment</button>
+          </form>
+      </div>
+          
         </div>
       </section>
 
