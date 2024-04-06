@@ -99,6 +99,16 @@
           </div>
 
         </div>
+
+
+          <div class="rating-stars">
+            <input type="radio" name="rating" value="5"><span>☆☆☆☆☆</span>
+            <input type="radio" name="rating" value="4"><span>☆☆☆☆</span>
+            <input type="radio" name="rating" value="3"><span>☆☆☆</span>
+            <input type="radio" name="rating" value="2"><span>☆☆</span>
+            <input type="radio" name="rating" value="1"><span>☆</span>
+        </div>
+        <button class="btn btn-primary" id="submit-rating">Submit Rating</button>
       </section>
 
 
@@ -271,6 +281,43 @@
   </main>
 
 @endsection
+
+@push('js')
+<script>
+    document.getElementById('submit-rating').addEventListener('click', function() {
+        var rating = document.querySelector('input[name="rating"]:checked').value;
+        var movieId = "{{ $movie->id }}"; // Assuming you pass the movie ID to the view
+        
+        // Send rating data to the server using AJAX
+        var formData = new FormData();
+        formData.append('rating', rating);
+        
+        fetch('/movie/' + movieId + '/rate', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}', // Add CSRF token header
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ rating: rating })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data.message); // Output success message to console (optional)
+            // You can also update the UI to indicate that the rating was submitted successfully
+        })
+        .catch(error => {
+            console.error('There was a problem with your fetch operation:', error);
+            // Handle errors here (e.g., display error message to user)
+        });
+    });
+  </script>
+@endpush
 
 
 

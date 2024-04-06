@@ -25,3 +25,6 @@ Route::get('/home', [HomeController::class, 'index'])->middleware(RedirectIfAuth
 Route::get('/addmovie', [MovieController::class, 'adMoviePage'])->name('addmovie-index');
 Route::get('/movie/{id}', [MovieController::class, 'movieDetailsPage'])->name('moviedetails-index');
 Route::post('/createmovie', [MovieController::class, 'addMovie'])->name('movie.store');
+
+
+Route::post('movie/{movieId}/rate', [MovieController::class, 'submitRating'])->name('submit-rating');

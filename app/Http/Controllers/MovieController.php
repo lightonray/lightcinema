@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
+use App\Models\Rating;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -64,5 +65,24 @@ class MovieController extends Controller
         $movie = Movie::findOrFail($id);
 
         return view('movie-details', compact('movie'));
+    }
+
+
+    public function submitRating(Request $request, $movieId)
+    {
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'rating' => 'required|integer|between:1,5', // Assuming ratings are integers from 1 to 5
+        ]);
+
+        // Save the rating to the database
+        $rating = new Rating();
+        $rating->movie_id = $movieId;
+        $rating->user_id = auth()->id(); // Assuming you're using authentication and want to track the user who submitted the rating
+        $rating->rating = $validatedData['rating'];
+        $rating->save();
+
+        // Return a response (optional)
+        return response()->json(['message' => 'Rating submitted successfully'], 200);
     }
 }
