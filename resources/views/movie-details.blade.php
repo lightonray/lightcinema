@@ -103,7 +103,7 @@
 
 
       <!-- 
-        - #TV SERIES
+        USER COMMENTS SECTION
       -->
 
       <section class="tv-series">

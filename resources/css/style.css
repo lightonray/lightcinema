@@ -1739,7 +1739,7 @@ button#add-movie:hover {
 }
 
 .comments::-webkit-scrollbar-thumb {
-  background: #ffc107; /* Color of the scrollbar thumb (handle) */
+  background: yellow; /* Color of the scrollbar thumb (handle) */
   border-radius: 6px; /* Radius of the scrollbar thumb */
 }
 
