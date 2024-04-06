@@ -70,19 +70,18 @@ class MovieController extends Controller
 
     public function submitRating(Request $request, $movieId)
     {
-        // Validate the incoming request data
         $validatedData = $request->validate([
-            'rating' => 'required|integer|between:1,5', // Assuming ratings are integers from 1 to 5
+            'rating' => 'required|integer|between:1,5',
         ]);
 
-        // Save the rating to the database
+        
         $rating = new Rating();
         $rating->movie_id = $movieId;
-        $rating->user_id = auth()->id(); // Assuming you're using authentication and want to track the user who submitted the rating
+        $rating->user_id = auth()->id();
         $rating->rating = $validatedData['rating'];
         $rating->save();
 
-        // Return a response (optional)
+        
         return response()->json(['message' => 'Rating submitted successfully'], 200);
     }
 }

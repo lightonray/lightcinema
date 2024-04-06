@@ -69,46 +69,33 @@
             </p>
 
             <div class="details-actions">
-
-              <button class="share">
-                <ion-icon name="share-social"></ion-icon>
-
-                <span>Share</span>
-              </button>
-
-              <div class="title-wrapper">
-                <p class="title">Prime Video</p>
-
-                <p class="text">Streaming Channels</p>
-              </div>
-
-              <button class="btn btn-primary">
-                <ion-icon name="play"></ion-icon>
-
-                <span>Watch Now</span>
-              </button>
-
+              <div class="pp-review-form">
+                <div class="pp-review-form-stars">
+                    @for ($i = 0; $i < 5; $i++)
+                        <button class="pp-review-star" value="{{ $i }}" data-star-index="{{ $i }}" type="button">
+                            <img src="{{ asset('/images/reviews-icon-gray.svg') }}" alt="" />
+                            <img src="{{ asset('/images/reviews-icon-gold.svg') }}" alt="" />
+                        </button>
+                    @endfor
+                </div>
+                <div class="pp-review-form-submit">
+                    <button class="btn btn-primary" id="submit-rating">Submit Rating</button>
+                </div>
+            </div>
             </div>
 
-            <a href="{{ asset('images/movie-4.png') }}" download class="download-btn">
-              <span>Download</span>
-
-              <ion-icon name="download-outline"></ion-icon>
-            </a>
+           
+              
 
           </div>
 
+          
+
         </div>
 
 
-          <div class="rating-stars">
-            <input type="radio" name="rating" value="5"><span>☆☆☆☆☆</span>
-            <input type="radio" name="rating" value="4"><span>☆☆☆☆</span>
-            <input type="radio" name="rating" value="3"><span>☆☆☆</span>
-            <input type="radio" name="rating" value="2"><span>☆☆</span>
-            <input type="radio" name="rating" value="1"><span>☆</span>
-        </div>
-        <button class="btn btn-primary" id="submit-rating">Submit Rating</button>
+
+          
       </section>
 
 
@@ -284,22 +271,54 @@
 
 @push('js')
 <script>
-    document.getElementById('submit-rating').addEventListener('click', function() {
-        var rating = document.querySelector('input[name="rating"]:checked').value;
-        var movieId = "{{ $movie->id }}"; // Assuming you pass the movie ID to the view
-        
-        // Send rating data to the server using AJAX
-        var formData = new FormData();
-        formData.append('rating', rating);
-        
-        fetch('/movie/' + movieId + '/rate', {
+  const rateProfileStars = $('.pp-review-star');
+
+// Reviews logic
+let selectedReviewRating = null;
+
+$('.pp-review-form-stars').on('mouseover', '.pp-review-star', function(e) {
+    const starIndex = $(this).data('star-index');
+
+    handleUserRatingStars(starIndex);
+});
+
+function handleUserRatingStars(index) {
+    rateProfileStars.removeClass('active');
+    for (let i = 0; i <= index; i++) {
+        rateProfileStars.eq(i).addClass('active');
+    }
+}
+
+$('.pp-review-form-stars').on('mouseleave', function(e) {
+    if (selectedReviewRating == null) {
+        rateProfileStars.removeClass('active');
+    } else {
+        handleUserRatingStars(selectedReviewRating);
+    }
+});
+
+$('.pp-review-form-stars').on('click', '.pp-review-star', function(e) {
+    const starIndex = $(this).data('star-index');
+    selectedReviewRating = starIndex;
+});
+
+$('#submit-rating').on('click', function() {
+    var movieId = "{{ $movie->id }}"; 
+
+    if (selectedReviewRating == null) {
+        console.error('No rating selected');
+        return;
+    }
+
+    
+    fetch('/movie/' + movieId + '/rate', {
             method: 'POST',
             headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}', // Add CSRF token header
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify({ rating: rating })
+            body: JSON.stringify({ rating: selectedReviewRating })
         })
         .then(response => {
             if (!response.ok) {
@@ -308,15 +327,15 @@
             return response.json();
         })
         .then(data => {
-            console.log(data.message); // Output success message to console (optional)
-            // You can also update the UI to indicate that the rating was submitted successfully
+            console.log(data.message);
         })
         .catch(error => {
             console.error('There was a problem with your fetch operation:', error);
             // Handle errors here (e.g., display error message to user)
         });
-    });
-  </script>
+});
+
+</script>
 @endpush
 
 

@@ -1685,3 +1685,39 @@ button#add-movie:hover {
   height: 100px; 
   border: 4px solid black;
 }
+
+
+
+.pp-review-form-stars {
+  display: flex;
+  justify-content: left;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 15px;
+
+  .pp-review-star {
+      max-width: 20px;
+      max-height: 20px;
+      img {
+          width: 100%;
+          height: 100%;
+          &:first-of-type {
+              display: block;
+          }
+          &:last-of-type {
+              display: none;
+          }
+      }
+
+      &.active {
+          img {
+              &:first-of-type {
+                  display: none;
+              }
+              &:last-of-type {
+                  display: block;
+              }
+          }
+      }
+  }
+}
