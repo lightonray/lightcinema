@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Category;
+use Termwind\Components\Dd;
 
 class MovieController extends Controller
 {
@@ -32,6 +33,7 @@ class MovieController extends Controller
 
     public function addMovie(Request $request)
     {
+
         // Validate the incoming request data
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
@@ -39,6 +41,7 @@ class MovieController extends Controller
             'release_date' => 'required|date',
             'duration' => 'required|integer|min:1',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'categories' => 'required|array',
         ]);
 
         // Process the file upload
@@ -60,6 +63,9 @@ class MovieController extends Controller
         $movie->user_id = Auth::id();
 
         $movie->save();
+
+        // attach categories 
+        $movie->categories()->attach($validatedData['categories']);
 
         return redirect()->back()->with('success', 'Movie added successfully!');
     }

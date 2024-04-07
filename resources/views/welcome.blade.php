@@ -36,23 +36,11 @@
           <h2 class="h2 section-title">Our Database Collection</h2>
 
           <ul class="filter-list">
-
-            <li>
-              <button class="filter-btn">Action</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Drama</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Comedy</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Romance</button>
-            </li>
-
+            @foreach($categories as $category)
+              <li>  
+                <button class="filter-btn">{{ $category->name }}</button>
+                </li>
+            @endforeach
           </ul>
 
           <ul class="movies-list">
@@ -70,7 +58,9 @@
                             <h3 class="card-title">{{ $movie->title }}</h3>
                         </a>
         
-                        <time datetime="{{ $movie->release_date }}">{{ $movie->release_date }}</time>
+                        <time datetime="{{ $movie->release_date }}">
+                            {{ \Carbon\Carbon::parse($movie->release_date)->format('d F Y') }}
+                        </time>
                     </div>
         
                     <div class="card-meta">

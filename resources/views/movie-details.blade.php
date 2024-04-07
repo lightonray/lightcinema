@@ -30,20 +30,10 @@
 
             <div class="meta-wrapper">
 
-              <div class="badge-wrapper">
-                <div class="badge badge-fill">PG 13</div>
-
-                <div class="badge badge-outline">HD</div>
-              </div>
-
               <div class="ganre-wrapper">
-                <a href="#">Comedy,</a>
-
-                <a href="#">Action,</a>
-
-                <a href="#">Adventure,</a>
-
-                <a href="#">Science Fiction</a>
+                @foreach($movie->categories as $category)
+                    <a href="#">{{ $category->name }},</a>
+                @endforeach
               </div>
 
               <div class="date-time">
