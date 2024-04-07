@@ -110,40 +110,17 @@
         <div class="container">
           <h2 style="color: yellow; padding: 20px">User Comments</h2>
           <div class="comments">
-              <!-- Dummy comments -->
-              <div class="comment">
-                  <div class="comment-content">
-                      <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae urna ac velit consequat fermentum. Integer vel ante eget leo ullamcorper efficitur.</p>
-                      <p class="comment-meta">Posted by John Doe on April 5, 2024</p>
-                  </div>
-              </div>
-              <div class="comment">
-                  <div class="comment-content">
-                      <p class="comment-text">Ut efficitur magna et libero interdum, quis posuere purus tempus. Integer eget turpis at lorem finibus congue nec sed eros.</p>
-                      <p class="comment-meta">Posted by Jane Doe on April 6, 2024</p>
-                  </div>
-              </div>
-              <div class="comment">
-                <div class="comment-content">
-                    <p class="comment-text">Ut efficitur magna et libero interdum, quis posuere purus tempus. Integer eget turpis at lorem finibus congue nec sed eros.</p>
-                    <p class="comment-meta">Posted by Jane Doe on April 6, 2024</p>
-                </div>
-            </div>
-            <div class="comment">
-              <div class="comment-content">
-                  <p class="comment-text">Ut efficitur magna et libero interdum, quis posuere purus tempus. Integer eget turpis at lorem finibus congue nec sed eros.</p>
-                  <p class="comment-meta">Posted by Jane Doe on April 6, 2024</p>
-              </div>
-          </div>
+              
              
-              <!-- End of dummy comments -->
           </div>
           
           <!-- Comment form -->
           <form id="comment-form">
+              @csrf
               <div class="form-group">
-                  <textarea style="padding: 10px" class="form-control" id="comment-input" rows="3" placeholder="Write your comment here"></textarea>
+                  <textarea style="padding: 10px" class="form-control" id="comment-input" name="content" rows="3" placeholder="Write your comment here"></textarea>
               </div>
+              <input type="hidden" name="movie_id" value="{{ $movie->id }}">
               <button type="submit" class="btn btn-primary">Comment</button>
           </form>
       </div>

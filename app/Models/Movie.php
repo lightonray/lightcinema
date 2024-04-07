@@ -36,4 +36,9 @@ class Movie extends Model
     {
         return $this->ratings()->average('rating');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

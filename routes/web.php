@@ -28,3 +28,5 @@ Route::post('/createmovie', [MovieController::class, 'addMovie'])->name('movie.s
 
 
 Route::post('movie/{movieId}/rate', [MovieController::class, 'submitRating'])->name('submit-rating');
+Route::get('/comments', [MovieController::class, 'comments'])->name('comments.index');
+Route::post('/comments', [MovieController::class, 'submitComment'])->name('comment.store'); 

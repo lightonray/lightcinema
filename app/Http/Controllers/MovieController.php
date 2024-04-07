@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Movie;
 use App\Models\Rating;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class MovieController extends Controller
 {
@@ -83,5 +86,71 @@ class MovieController extends Controller
 
         
         return response()->json(['message' => 'Rating submitted successfully'], 200);
+    }
+
+    public function submitComment(Request $request)
+    {
+        $rules = [
+            'content' => 'required|string|max:255', 
+        ];
+
+        $messages = [
+            'content.required' => 'Please enter your comment.',
+            'content.max' => 'The comment may not be greater than :max characters.',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'errors' => $validator->errors()]);
+        }
+
+        // Create a new comment instance with the validated data
+        $comment = new Comment();
+        $comment->user_id = auth()->user()->id; 
+        $comment->movie_id = $request->movie_id;
+        $comment->content = $request->input('content');
+        $comment->save();
+
+        // Fetch the user's name based on the user_id
+        $user = User::find(auth()->user()->id);
+        $userName = $user ? $user->name : 'Unknown User';
+
+        // Include the user's name along with the comment details in the JSON response
+        $response = [
+            'success' => true,
+            'message' => 'Comment posted successfully!',
+            'comment' => [
+                'id' => $comment->id,
+                'content' => $comment->content,
+                'user_id' => $comment->user_id,
+                'user_name' => $userName, // Include the user's name
+                'movie_id' => $comment->movie_id,
+                'created_at' => $comment->created_at,
+                'updated_at' => $comment->updated_at
+            ]
+        ];
+
+        return response()->json($response);
+    }
+
+    public function comments()
+    {
+        $comments = Comment::with('user')->latest()->get();
+        
+        $response = $comments->map(function ($comment) {
+            $userName = $comment->user ? $comment->user->name : 'Unknown User';
+            return [
+                'id' => $comment->id,
+                'content' => $comment->content,
+                'user_id' => $comment->user_id,
+                'user_name' => $userName,
+                'movie_id' => $comment->movie_id,
+                'created_at' => $comment->created_at->toDateTimeString(),
+                'updated_at' => $comment->updated_at->toDateTimeString() 
+            ];
+        });
+        
+        return response()->json($response);
     }
 }
