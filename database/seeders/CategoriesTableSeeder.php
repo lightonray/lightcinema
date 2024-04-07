@@ -24,7 +24,6 @@ class CategoriesTableSeeder extends Seeder
             'Drama',
             'Family',
             'Fantasy',
-            'Film-Noir',
             'History',
             'Horror',
             'Music',
