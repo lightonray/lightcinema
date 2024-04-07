@@ -25,6 +25,12 @@ class Movie extends Model
     ];
 
 
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
     // Define relationship with ratings
     public function ratings()
     {

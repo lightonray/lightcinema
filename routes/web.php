@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::get('/', [LandingController::class, 'showLandingPage'])->name('landing');
 Route::get('/home', [HomeController::class, 'index'])->middleware(RedirectIfAuthenticated::class)->name('home');
-Route::get('/addmovie', [MovieController::class, 'adMoviePage'])->name('addmovie-index');
+Route::get('/addmovie', [MovieController::class, 'addMoviePage'])->name('addmovie-index');
 Route::get('/movie/{id}', [MovieController::class, 'movieDetailsPage'])->name('moviedetails-index');
 Route::post('/createmovie', [MovieController::class, 'addMovie'])->name('movie.store');
 

@@ -1686,7 +1686,18 @@ button#add-movie:hover {
   border: 4px solid black;
 }
 
-
+.categories-dropdown {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #495057;
+    outline: none;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
 
 .pp-review-form-stars {
   display: flex;
@@ -1725,22 +1736,22 @@ button#add-movie:hover {
 .comments {
   padding-right: 20px;
   margin-bottom: 40px;
-  max-height: 400px; /* Adjust the maximum height as needed */
-  overflow-y: auto; /* Enable vertical scrollbar when needed */
+  max-height: 400px; 
+  overflow-y: auto;
 }
 
 .comments::-webkit-scrollbar {
-  width: 12px; /* Width of the scrollbar */
+  width: 12px;
 }
 
 .comments::-webkit-scrollbar-track {
   border-radius: 6px;
-  background: #f1f1f1; /* Background color of the scrollbar track */
+  background: #f1f1f1;
 }
 
 .comments::-webkit-scrollbar-thumb {
-  background: yellow; /* Color of the scrollbar thumb (handle) */
-  border-radius: 6px; /* Radius of the scrollbar thumb */
+  background: yellow; 
+  border-radius: 6px; 
 }
 
 .comment {
@@ -1779,3 +1790,61 @@ button#add-movie:hover {
   font-size: 16px;
 }
 
+
+
+/* Customize Select2 dropdown items */
+.select2-results__option:hover {
+  background-color: yellow !important; 
+  color: black !important; 
+}
+
+
+/* Customize the close button on selected options */
+.select2-selection__choice__remove {
+  color: black !important; 
+}
+
+/* Style the dropdown arrow */
+.select2-selection__arrow {
+  border-color: yellow !important; 
+}
+
+/* Style the placeholder text */
+.select2-selection__placeholder {
+  color: #95a5a6 !important; 
+}
+
+/* Customize Select2 dropdown scrollbar */
+.select2-results__options {
+  max-height: 200px; 
+  overflow-y: auto; 
+  scrollbar-width: thin; 
+  scrollbar-color: yellow transparent;
+}
+
+/* Customize scrollbar track */
+.select2-results__options::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+/* Customize scrollbar thumb */
+.select2-results__options::-webkit-scrollbar-thumb {
+  background-color: yellow; 
+}
+
+
+/* Style the selected option */
+.select2-selection__choice {
+  background-color: yellow !important; 
+  color: black !important; 
+  border: 1px solid black !important; 
+  border-radius: 5px !important; 
+  padding: 2px 5px !important; 
+  margin-right: 5px !important; 
+}
+
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: yellow !important;
+  color: black;
+}

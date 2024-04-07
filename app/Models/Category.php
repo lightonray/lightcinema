@@ -14,4 +14,10 @@ class Category extends Model
         'image',
         'preview_image'
     ];
+
+
+    public function movies()
+    {
+        return $this->belongsToMany(Movie::class);
+    }
 }

@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('movies', function (Blueprint $table) {
-            $table->id();
-            $table->string('user_id');
-            $table->string('title');
-            $table->text('image'); 
-            $table->text('description')->nullable();
-
-            $table->timestamps();
+        Schema::create('category_movie', function (Blueprint $table) {
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('movie_id')->constrained()->onDelete('cascade');
+            $table->primary(['category_id', 'movie_id']);
         });
     }
 
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('movies');
+        Schema::dropIfExists('category_movie');
     }
 };

@@ -23,7 +23,15 @@
                       <label for="duration">Duration (minutes):</label><br>
                       <input type="number" id="duration" name="duration" min="1"><br>
               
-                      <label for="image" class="file-input-label">Choose Image</label>
+                      <label for="categories">Categories:</label><br>
+                        <select id="categories" name="categories[]" multiple class="form-control categories-dropdown select2">
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select><br>
+
+
+                      <label style="margin-top: 20px;" for="image" class="file-input-label">Choose Image</label>
                       <input type="file" id="image" name="image" class="file-input" accept="image/*">
                       
                       <div class="file-name-container">
@@ -41,3 +49,4 @@
         </div>
       </section>   
 @endsection
+

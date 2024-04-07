@@ -9,6 +9,7 @@ use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Category;
 
 class MovieController extends Controller
 {
@@ -22,9 +23,10 @@ class MovieController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function adMoviePage()
+    public function addMoviePage()
     {
-        return view('addmovie');
+        $categories = Category::all();
+        return view('addmovie', compact('categories'));
     }
 
 
