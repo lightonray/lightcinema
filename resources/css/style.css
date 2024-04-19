@@ -1848,3 +1848,19 @@ button#add-movie:hover {
   background-color: yellow !important;
   color: black;
 }
+
+
+.actor-chip {
+  display: inline-flex;
+  background-color: black;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 16px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.actor-chip:hover {
+  background-color: #0056b3;
+}

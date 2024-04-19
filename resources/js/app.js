@@ -1,6 +1,7 @@
 import './bootstrap';
 import './script';
 import './comments';
+import './actors';
 
 if(document.querySelector(".form-container") != undefined){
     import ('./uploadImage');

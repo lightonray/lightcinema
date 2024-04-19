@@ -23,6 +23,14 @@
                       <label for="duration">Duration (minutes):</label><br>
                       <input type="number" id="duration" name="duration" min="1"><br>
               
+                      <label for="director">Director:</label><br>
+                      <input type="text" id="director" name="director" placeholder="Enter director's name"><br>
+
+                      <label for="director">Actors:</label><br>
+                      <div id="actor-input">
+                        <input type="text" id="actor-input-field" name="actors[]" placeholder="Enter actor name">
+                      </div>
+
                       <label for="categories">Categories:</label><br>
                         <select id="categories" name="categories[]" multiple class="form-control categories-dropdown select2">
                             @foreach($categories as $category)
@@ -49,4 +57,3 @@
         </div>
       </section>   
 @endsection
-
