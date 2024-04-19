@@ -47,4 +47,9 @@ class Movie extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function actors()
+    {
+        return $this->belongsToMany(Actor::class);
+    }
 }
