@@ -1849,6 +1849,9 @@ button#add-movie:hover {
   color: black;
 }
 
+#actor-input {
+  margin-bottom: 10px;
+}
 
 .actor-chip {
   display: inline-flex;
@@ -1856,6 +1859,7 @@ button#add-movie:hover {
   color: #fff;
   padding: 4px 8px;
   border-radius: 16px;
+  margin-top: 5px;
   margin-right: 8px;
   margin-bottom: 8px;
   cursor: pointer;
@@ -1864,3 +1868,4 @@ button#add-movie:hover {
 .actor-chip:hover {
   background-color: #0056b3;
 }
+

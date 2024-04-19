@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Actor;
 use App\Models\Movie;
 use App\Models\Rating;
 use App\Models\Comment;
+use App\Models\Category;
+use Termwind\Components\Dd;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Category;
-use Termwind\Components\Dd;
 
 class MovieController extends Controller
 {
@@ -33,8 +34,6 @@ class MovieController extends Controller
 
     public function addMovie(Request $request)
     {
-
-        dd($request->all());
         // Validate the incoming request data
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
@@ -43,6 +42,8 @@ class MovieController extends Controller
             'duration' => 'required|integer|min:1',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'categories' => 'required|array',
+            'director' => 'required|string|max:255',
+            'actors' => 'required|array',
         ]);
 
         // Process the file upload
@@ -60,6 +61,7 @@ class MovieController extends Controller
         $movie->release_date = $validatedData['release_date'];
         $movie->duration = $validatedData['duration'];
         $movie->image = $validatedData['image'];
+        $movie->director = $validatedData['director'];
 
         $movie->user_id = Auth::id();
 
@@ -68,6 +70,14 @@ class MovieController extends Controller
         // attach categories 
         $movie->categories()->attach($validatedData['categories']);
 
+
+        foreach ($validatedData['actors'] as $actorName) {
+            if ($actorName !== null) {
+                $actor = Actor::firstOrCreate(['name' => $actorName]);
+                $movie->actors()->attach($actor->id);
+            }
+        }
+        
         return redirect()->back()->with('success', 'Movie added successfully!');
     }
 
