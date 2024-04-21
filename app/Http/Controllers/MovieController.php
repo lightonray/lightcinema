@@ -32,9 +32,14 @@ class MovieController extends Controller
     }
 
 
+    /**
+     * Add a new movie.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function addMovie(Request $request)
     {
-        // Validate the incoming request data
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
@@ -82,6 +87,12 @@ class MovieController extends Controller
     }
 
 
+    /**
+     * Display the details page for a specific movie.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Contracts\View\View
+     */
     public function movieDetailsPage($id)
     {
         $movie = Movie::findOrFail($id);
@@ -90,6 +101,13 @@ class MovieController extends Controller
     }
 
 
+    /**
+     * Submit a rating for a specific movie.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $movieId
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function submitRating(Request $request, $movieId)
     {
         $validatedData = $request->validate([
@@ -107,6 +125,12 @@ class MovieController extends Controller
         return response()->json(['message' => 'Rating submitted successfully'], 200);
     }
 
+    /**
+     * Submit a comment for a movie.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function submitComment(Request $request)
     {
         $rules = [
@@ -153,6 +177,11 @@ class MovieController extends Controller
         return response()->json($response);
     }
 
+    /**
+     * Retrieve all comments along with their associated user.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function comments()
     {
         $comments = Comment::with('user')->latest()->get();

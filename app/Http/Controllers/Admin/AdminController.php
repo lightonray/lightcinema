@@ -3,23 +3,28 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('guest');
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function allMovies()
-    {
-        $movies = Movie::with('categories')->get();
 
-        return view('admin.movies.index', compact('movies'));
+    /**
+     * Show the admin dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        return view('admin.home');
     }
 }

@@ -2,28 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Display the landing page.
      *
-     * @return void
+     * @return \Illuminate\View\View
      */
-    public function __construct()
+    public function showLandingPage()
     {
-        $this->middleware('auth');
-        $this->middleware('guest');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        return view('home');
+        $movies = Movie::all();
+        $categories = Category::all();
+        
+        return view('index', compact('movies'),compact('categories'));
     }
 }
