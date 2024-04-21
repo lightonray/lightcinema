@@ -10,7 +10,7 @@
 
           <div class="hero-content">
 
-            <p class="hero-subtitle">LightCinema</p>
+            <p class="hero-subtitle"></p>
 
             <h1 class="h1 hero-title">
               Largest <strong>Movie</strong>, Database.
@@ -43,48 +43,50 @@
             @endforeach
           </ul>
 
-          <ul class="movies-list">
-            @foreach($movies as $movie)
-            <li>
-                <div class="movie-card">
-                    <a href="{{ route('moviedetails-index', ['id' => $movie->id]) }}">
-                        <figure class="card-banner">
-                            <img src="{{ asset('images/'.$movie->image) }}" alt="{{ $movie->title }} movie poster">
-                        </figure>
-                    </a>
-        
-                    <div class="title-wrapper">
-                        <a href="{{ route('moviedetails-index', ['id' => $movie->id]) }}">
-                            <h3 class="card-title">{{ $movie->title }}</h3>
-                        </a>
-        
-                        <time datetime="{{ $movie->release_date }}">
-                            {{ \Carbon\Carbon::parse($movie->release_date)->format('d F Y') }}
-                        </time>
-                    </div>
-        
-                    <div class="card-meta">
-                        {{-- <div class="badge badge-outline">{{ $movie->views }}</div> --}}
-        
-                        <div class="duration">
-                            <ion-icon name="time-outline"></ion-icon>
-                            <time datetime="PT{{ $movie->duration }}M">{{ $movie->duration }} min</time>
-                        </div>
-        
-                        {{-- <div class="rating">
-                            <ion-icon name="star"></ion-icon>
-                            <data>{{ $movie->rating }}</data>
-                        </div> --}}
-                    </div>
-                </div>
-            </li>
-            @endforeach
-        </ul>
+            @if($movies->isEmpty())
+              <div class="no-movies-found">
+                <p>No movies are found.</p>
+              </div>
+            @else
+            <ul class="movies-list">
+              @foreach($movies as $movie)
+              <li>
+                  <div class="movie-card">
+                      <a href="{{ route('moviedetails-index', ['id' => $movie->id]) }}">
+                          <figure class="card-banner">
+                              <img src="{{ asset('images/'.$movie->image) }}" alt="{{ $movie->title }} movie poster">
+                          </figure>
+                      </a>
+          
+                      <div class="title-wrapper">
+                          <a href="{{ route('moviedetails-index', ['id' => $movie->id]) }}">
+                              <h3 class="card-title">{{ $movie->title }}</h3>
+                          </a>
+          
+                          <time datetime="{{ $movie->release_date }}">
+                              {{ \Carbon\Carbon::parse($movie->release_date)->format('d F Y') }}
+                          </time>
+                      </div>
+          
+                      <div class="card-meta">
+                          {{-- <div class="badge badge-outline">{{ $movie->views }}</div> --}}
+          
+                          <div class="duration">
+                              <ion-icon name="time-outline"></ion-icon>
+                              <time datetime="PT{{ $movie->duration }}M">{{ $movie->duration }} min</time>
+                          </div>
+          
+                          {{-- <div class="rating">
+                              <ion-icon name="star"></ion-icon>
+                              <data>{{ $movie->rating }}</data>
+                          </div> --}}
+                      </div>
+                  </div>
+              </li>
+              @endforeach
+          </ul>
+          @endif
 
         </div>
       </section>
 @endsection
-
-
-
-

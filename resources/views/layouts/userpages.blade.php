@@ -10,7 +10,7 @@
   <!-- 
     - favicon
   -->
-  <link rel="shortcut icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
+  <link rel="shortcut icon" href="{{ asset('lcinemalogo.png') }}" type="">
 
   <!-- 
     - custom css link

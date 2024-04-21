@@ -1869,3 +1869,9 @@ button#add-movie:hover {
   background-color: #0056b3;
 }
 
+.no-movies-found {
+  text-align: center;
+  color: white;
+  font-size: 80px;
+  margin-top: 50px; /* Adjust as needed */
+}
