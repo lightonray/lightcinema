@@ -8,6 +8,11 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('guest');
+    }
     /**
      * Display a listing of all users.
      *

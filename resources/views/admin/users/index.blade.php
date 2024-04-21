@@ -3,7 +3,10 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Users</h1>
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Users</h1>
+        <a href="" class="btn btn-success">Add User</a>
+    </div>
 @stop
 
 @section('content')

@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-6 col-6">
             <div class="small-box bg-info">
                 <div class="inner">
                     <h3>{{ $userCount }}</h3>
@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-6 col-6">
             <div class="small-box bg-success">
                 <div class="inner">
                     <h3>{{ $movieCount }}</h3>
@@ -36,7 +36,7 @@
     </div>
 
     <div class="row">
-        <section class="col-lg-5 connectedSortable ui-sortable">
+        <section class="col-lg-12 connectedSortable ui-sortable">
 
             <div class="card bg-gradient-primary" style="position: relative; left: 0px; top: 0px;">
                 <div class="card-header border-0 ui-sortable-handle" style="cursor: move;">
@@ -55,7 +55,7 @@
                     </div>
 
                 </div>
-                <div class="card-body">
+                <div style="margin: 0 auto;" class="card-body">
                     <div id="world-map"
                         style="height: 250px; width: 100%; position: relative; overflow: hidden; background-color: transparent;">
                         <svg width="615.4" height="250">

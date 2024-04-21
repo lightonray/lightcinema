@@ -3,7 +3,10 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Movies</h1>
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Movie</h1>
+        <a href="" class="btn btn-success">Add Movie</a>
+    </div>
 @stop
 
 @section('content')

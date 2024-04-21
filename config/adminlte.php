@@ -318,13 +318,13 @@ return [
         [
             'text' => 'Users',
             'url' => 'admin/users',
-            'icon' => 'far fa-fw fa-file',
+            'icon' => 'far fa-fw fa-user',
             'label_color' => 'success',
         ],
         [
             'text' => 'Movies',
             'url' => 'admin/movies',
-            'icon' => 'far fa-fw fa-file',
+            'icon' => 'far fa-fw fa fa-film',
             'label_color' => 'success',
         ],
         [
