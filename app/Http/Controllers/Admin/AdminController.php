@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Models\Movie;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
@@ -25,6 +27,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        $userCount = User::count();
+        $movieCount = Movie::count();
+
+        return view('admin.home', compact('userCount', 'movieCount'));
     }
 }
