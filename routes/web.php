@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -30,3 +31,7 @@ Route::post('/createmovie', [MovieController::class, 'addMovie'])->name('movie.s
 Route::post('movie/{movieId}/rate', [MovieController::class, 'submitRating'])->name('submit-rating');
 Route::get('/comments', [MovieController::class, 'comments'])->name('comments.index');
 Route::post('/comments', [MovieController::class, 'submitComment'])->name('comment.store'); 
+
+
+Route::get('/admin/movies', [AdminController::class, 'allMovies'])->name('movies-index');
+
