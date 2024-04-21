@@ -37,6 +37,26 @@
                     <input type="number" id="duration" name="duration" class="form-control" value="{{ $movie->duration }}">
                 </div>
                 <div class="form-group">
+                    <label for="director">Director</label>
+                    <input type="text" id="director" name="director" class="form-control" value="{{ $movie->director }}">
+                </div>
+                <div class="form-group">
+                    <label for="categories">Genre</label>
+                    <select id="categories" name="categories[]" class="form-control" multiple>
+                        @foreach($allCategories as $category)
+                            <option value="{{ $category->id }}" {{ $selectedCategories->contains($category->id) ? 'selected' : '' }}>
+                                {{ $category->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" id="image" name="image" class="form-control-file">
+                    <p>Current Image:</p>
+                    <img src="{{ asset('images/' . $movie->image) }}" alt="Current Image" style="max-width: 200px;">
+                </div>
+                <div class="form-group">
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>

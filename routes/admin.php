@@ -22,6 +22,7 @@ Route::get('/home', [AdminController::class, 'index'])->middleware(RedirectIfAut
 Route::get('/admin/movies', [MovieController::class, 'allMovies'])->name('admin.movies.index');
 Route::get('/edit{id}/movies', [MovieController::class, 'editMovie'])->name('admin.movies.edit');
 Route::post('edit/movies/{id}', [MovieController::class, 'updateMovie'])->name('admin.movies.update');
+Route::delete('/movies/{id}', [MovieController::class, 'destroy'])->name('admin.movies.destroy');
 
 Route::get('/admin/users', [UserController::class, 'allUsers'])->name('admin.users.index');
 
