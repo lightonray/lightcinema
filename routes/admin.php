@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Middleware\RedirectIfAuthenticated;
@@ -18,5 +19,8 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 
 Route::get('/home', [AdminController::class, 'index'])->middleware(RedirectIfAuthenticated::class)->name('home');
 
-Route::get('/admin/movies', [MovieController::class, 'allMovies'])->name('movies-index');
+Route::get('/admin/movies', [MovieController::class, 'allMovies'])->name('admin.movies.index');
+
+Route::get('/admin/users', [UserController::class, 'allUsers'])->name('admin.users.index');
+
 
