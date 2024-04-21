@@ -52,7 +52,7 @@
                                     <a class="btn btn-primary btn-sm" href="#">
                                         <i class="fas fa-folder"></i> View
                                     </a>
-                                    <a class="btn btn-info btn-sm" href="#">
+                                    <a class="btn btn-info btn-sm" href="{{ route('admin.movies.edit', $movie->id) }}">
                                         <i class="fas fa-pencil-alt"></i> Edit
                                     </a>
                                     <a class="btn btn-danger btn-sm" href="#">

@@ -20,6 +20,8 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 Route::get('/home', [AdminController::class, 'index'])->middleware(RedirectIfAuthenticated::class)->name('home');
 
 Route::get('/admin/movies', [MovieController::class, 'allMovies'])->name('admin.movies.index');
+Route::get('/edit{id}/movies', [MovieController::class, 'editMovie'])->name('admin.movies.edit');
+Route::post('edit/movies/{id}', [MovieController::class, 'updateMovie'])->name('admin.movies.update');
 
 Route::get('/admin/users', [UserController::class, 'allUsers'])->name('admin.users.index');
 
