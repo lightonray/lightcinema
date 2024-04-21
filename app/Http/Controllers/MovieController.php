@@ -148,18 +148,16 @@ class MovieController extends Controller
             return response()->json(['success' => false, 'errors' => $validator->errors()]);
         }
 
-        // Create a new comment instance with the validated data
         $comment = new Comment();
         $comment->user_id = auth()->user()->id; 
         $comment->movie_id = $request->movie_id;
         $comment->content = $request->input('content');
         $comment->save();
 
-        // Fetch the user's name based on the user_id
+
         $user = User::find(auth()->user()->id);
         $userName = $user ? $user->name : 'Unknown User';
 
-        // Include the user's name along with the comment details in the JSON response
         $response = [
             'success' => true,
             'message' => 'Comment posted successfully!',
