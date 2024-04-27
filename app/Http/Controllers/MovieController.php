@@ -88,20 +88,6 @@ class MovieController extends Controller
 
 
     /**
-     * Display the details page for a specific movie.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Contracts\View\View
-     */
-    public function movieDetailsPage($id)
-    {
-        $movie = Movie::findOrFail($id);
-
-        return view('movie-details', compact('movie'));
-    }
-
-
-    /**
      * Submit a rating for a specific movie.
      *
      * @param  \Illuminate\Http\Request  $request

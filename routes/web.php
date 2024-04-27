@@ -26,7 +26,7 @@ Route::get('/', [HomeController::class, 'showLandingPage'])->name('landing');
 
 // Routes related to managing movies for the user
 Route::get('/addmovie', [MovieController::class, 'addMoviePage'])->name('addmovie-index');
-Route::get('/movie/{id}', [MovieController::class, 'movieDetailsPage'])->name('moviedetails-index');
+Route::get('/movie/{id}', [HomeController::class, 'movieDetailsPage'])->name('moviedetails-index');
 Route::post('/createmovie', [MovieController::class, 'addMovie'])->name('movie.store');
 
 // Route for submitting a rating for a movie
