@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\GenreController;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 
@@ -29,4 +30,9 @@ Route::get('/edit/{id}/users', [UserController::class, 'edit'])->name('admin.use
 Route::post('edit/users/{id}', [UserController::class, 'update'])->name('admin.users.update');
 Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('admin.users.destroy');
 
+
+Route::get('/admin/genres', [GenreController::class, 'allGenres'])->name('admin.genres.index');
+Route::get('/edit/{id}/genres', [GenreController::class, 'edit'])->name('admin.genres.edit');
+Route::post('edit/genres/{id}', [GenreController::class, 'update'])->name('admin.genres.update');
+Route::delete('/genres/{id}', [GenreController::class, 'destroy'])->name('admin.users.destroy');
 

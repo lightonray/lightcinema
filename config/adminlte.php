@@ -327,12 +327,12 @@ return [
             'icon' => 'far fa-fw fa fa-film',
             'label_color' => 'success',
         ],
-        // [
-        //     'text' => 'Genres',
-        //     'url' => 'admin/pages',
-        //     'icon' => 'far fa-fw fa-file',
-        //     'label_color' => 'success',
-        // ],
+        [
+            'text' => 'Genres',
+            'url' => 'admin/genres',
+            'icon' => 'far fa-fw fa-file',
+            'label_color' => 'success',
+        ],
         ['header' => 'account_settings'],
         // [
         //     'text' => 'profile',
