@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 15s  # Default scrape interval
+
+scrape_configs:
+  - job_name: 'laravel-app'
+    static_configs:
+      - targets: ['host.docker.internal:80','lightcinema-laravel.test-1:80']  # For the Laravel app
+  - job_name: 'vite-server'
+    static_configs:
+      - targets: ['host.docker.internal:5173','lightcinema-laravel.test-1:5173']  # For Vite during development

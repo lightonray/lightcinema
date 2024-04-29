@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\LandingController;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use Arquivei\LaravelPrometheusExporter\Http\Controller as PrometheusController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Auth::routes();
  */
 Route::get('/', [HomeController::class, 'showLandingPage'])->name('landing');
 
+
+Route::get('/metrics', [PrometheusController::class, 'getMetrics']);
 /**
  * Movie Routes User
  */

@@ -60,6 +60,16 @@ services:
             - mysql
         networks:
             - sail
+    prometheus:
+        image: prom/prometheus
+        volumes:
+            - ./prometheus:/etc/prometheus
+            - prometheus_data:/prometheus
+        ports:
+            - "9090:9090"
+        restart: unless-stopped
+        networks:
+            - sail
 networks:
     sail:
         driver: bridge
@@ -67,4 +77,6 @@ volumes:
     sail-mysql:
         driver: local
     grafana_data:
+        driver: local
+    prometheus_data:
         driver: local

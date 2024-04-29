@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d1300fccdd6167270e6d2968d9479519",
+    "content-hash": "07fce5eae7c3965d9584ac6477cdd64d",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -48,6 +48,60 @@
                 "source": "https://github.com/ColorlibHQ/AdminLTE/tree/v3.2.0"
             },
             "time": "2022-02-07T20:33:09+00:00"
+        },
+        {
+            "name": "arquivei/laravel-prometheus-exporter",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arquivei/laravel-prometheus-exporter.git",
+                "reference": "3fb0f27cfcf4da3fc7bdffbcf84fa09ad3c340b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arquivei/laravel-prometheus-exporter/zipball/3fb0f27cfcf4da3fc7bdffbcf84fa09ad3c340b7",
+                "reference": "3fb0f27cfcf4da3fc7bdffbcf84fa09ad3c340b7",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.4.2",
+                "illuminate/routing": "^10.0",
+                "illuminate/support": "^10.0",
+                "php": "^8.0 || ^8.1 || ^8.2",
+                "promphp/prometheus_client_php": "^2.6.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5.0",
+                "orchestra/testbench": "^8.5",
+                "phpunit/phpunit": "^9.5.20"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Arquivei\\LaravelPrometheusExporter\\": "src/",
+                    "Arquivei\\LaravelPrometheusExporter\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arquivei"
+                }
+            ],
+            "description": "A Prometheus exporter for Laravel and Lumen",
+            "support": {
+                "issues": "https://github.com/arquivei/laravel-prometheus-exporter/issues",
+                "source": "https://github.com/arquivei/laravel-prometheus-exporter/tree/4.0.0"
+            },
+            "time": "2023-07-05T21:30:50+00:00"
         },
         {
             "name": "brick/math",
@@ -2633,6 +2687,73 @@
                 }
             ],
             "time": "2023-11-12T21:59:55+00:00"
+        },
+        {
+            "name": "promphp/prometheus_client_php",
+            "version": "v2.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PromPHP/prometheus_client_php.git",
+                "reference": "a09ea80ec1ec26dd1d4853e9af2a811e898dbfeb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PromPHP/prometheus_client_php/zipball/a09ea80ec1ec26dd1d4853e9af2a811e898dbfeb",
+                "reference": "a09ea80ec1ec26dd1d4853e9af2a811e898dbfeb",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.2|^8.0"
+            },
+            "replace": {
+                "endclothing/prometheus_client_php": "*",
+                "jimdo/prometheus_client_php": "*",
+                "lkaemmerling/prometheus_client_php": "*"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "^6.3|^7.0",
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^1.5.4",
+                "phpstan/phpstan-phpunit": "^1.1.0",
+                "phpstan/phpstan-strict-rules": "^1.1.0",
+                "phpunit/phpunit": "^9.4",
+                "squizlabs/php_codesniffer": "^3.6",
+                "symfony/polyfill-apcu": "^1.6"
+            },
+            "suggest": {
+                "ext-apc": "Required if using APCu.",
+                "ext-redis": "Required if using Redis.",
+                "promphp/prometheus_push_gateway_php": "An easy client for using Prometheus PushGateway.",
+                "symfony/polyfill-apcu": "Required if you use APCu on PHP8.0+"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Prometheus\\": "src/Prometheus/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Lukas Kämmerling",
+                    "email": "kontakt@lukas-kaemmerling.de"
+                }
+            ],
+            "description": "Prometheus instrumentation library for PHP applications.",
+            "support": {
+                "issues": "https://github.com/PromPHP/prometheus_client_php/issues",
+                "source": "https://github.com/PromPHP/prometheus_client_php/tree/v2.10.0"
+            },
+            "time": "2024-02-01T13:28:34+00:00"
         },
         {
             "name": "psr/clock",
