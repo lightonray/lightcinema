@@ -40,50 +40,45 @@ class MovieController extends Controller
      */
     public function addMovie(Request $request)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'release_date' => 'required|date',
-            'duration' => 'required|integer|min:1',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'categories' => 'required|array',
-            'director' => 'required|string|max:255',
-            'actors' => 'required|array',
-        ]);
+        try {
+            $validatedData = $request->validate([
+                'title' => 'required|string|max:255',
+                'description' => 'required|string',
+                'release_date' => 'required|date',
+                'duration' => 'required|integer|min:1',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'categories' => 'required|array',
+                'director' => 'required|string|max:255',
+                'actors' => 'required|array',
+            ]);
 
-        // Process the file upload
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
-            $validatedData['image'] = $imageName;
-        }
-
-        // Create a new movie instance with the validated data
-        $movie = new Movie();
-        $movie->title = $validatedData['title'];
-        $movie->description = $validatedData['description'];
-        $movie->release_date = $validatedData['release_date'];
-        $movie->duration = $validatedData['duration'];
-        $movie->image = $validatedData['image'];
-        $movie->director = $validatedData['director'];
-
-        $movie->user_id = Auth::id();
-
-        $movie->save();
-
-        // attach categories 
-        $movie->categories()->attach($validatedData['categories']);
-
-
-        foreach ($validatedData['actors'] as $actorName) {
-            if ($actorName !== null) {
-                $actor = Actor::firstOrCreate(['name' => $actorName]);
-                $movie->actors()->attach($actor->id);
+            // Handle image upload
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images'), $imageName);
+                $validatedData['image'] = $imageName;
             }
+
+            $movie = new Movie($validatedData);
+            $movie->user_id = Auth::id(); // Assuming the user's ID is to be stored
+            $movie->save();
+
+            // Attach categories and actors
+            $movie->categories()->attach($validatedData['categories']);
+            foreach ($validatedData['actors'] as $actorName) {
+                if ($actorName !== null) {
+                    $actor = Actor::firstOrCreate(['name' => $actorName]);
+                    $movie->actors()->attach($actor->id);
+                }
+            }
+
+            return redirect()->back()->with('success', 'Movie added successfully!');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return redirect()->back()->withErrors($e->validator)->withInput();
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Failed to add movie: ' . $e->getMessage());
         }
-        
-        return redirect()->back()->with('success', 'Movie added successfully!');
     }
 
 

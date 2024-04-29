@@ -57,3 +57,25 @@
         </div>
       </section>   
 @endsection
+
+
+@push('js')
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      @if ($errors->any())
+          let message = `<ul>`;
+          @foreach ($errors->all() as $error)
+              message += `<li>{{ $error }}</li>`;
+          @endforeach
+          message += `</ul>`;
+  
+          Swal.fire({
+              title: 'Error!',
+              html: message,
+              icon: 'error',
+              confirmButtonText: 'OK'
+          });
+      @endif
+  });
+</script>  
+@endpush
