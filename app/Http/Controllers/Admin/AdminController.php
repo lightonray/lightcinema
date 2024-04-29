@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
@@ -30,6 +31,18 @@ class AdminController extends Controller
         $userCount = User::count();
         $movieCount = Movie::count();
 
-        return view('admin.home', compact('userCount', 'movieCount'));
+        $averageAge = User::whereNotNull('age')->average('age');
+
+        $mostCommonCountry = User::whereNotNull('country')
+                                ->groupBy('country')
+                                ->orderByRaw('COUNT(*) DESC')
+                                ->first(['country', DB::raw('COUNT(*) as count')]);
+
+        $mostCommonGender = User::whereNotNull('gender')
+                                ->groupBy('gender')
+                                ->orderByRaw('COUNT(*) DESC')
+                                ->first(['gender', DB::raw('COUNT(*) as count')]);
+
+        return view('admin.home', compact('userCount', 'movieCount', 'averageAge', 'mostCommonCountry', 'mostCommonGender'));
     }
 }
