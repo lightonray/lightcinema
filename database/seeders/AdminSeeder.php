@@ -12,7 +12,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 class AdminSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seed the database with initial data, such as creating an admin user and assigning roles and permissions.
      */
     public function run(): void
     {

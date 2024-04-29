@@ -9,7 +9,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 class CategoriesTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seed the database with initial genres.
      */
     public function run(): void
     {
