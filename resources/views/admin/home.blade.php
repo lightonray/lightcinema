@@ -7,75 +7,75 @@
 @stop
 
 @section('content')
-        <div class="row">
-            <div class="col-lg-6 col-6">
-                <div class="small-box bg-info">
-                    <div class="inner">
-                        <h3>{{ $userCount }}</h3>
-                        <p>Total Users</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+    <div class="row">
+        <div class="col-lg-6 col-6">
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>{{ $userCount }}</h3>
+                    <p>Total Users</p>
                 </div>
-            </div>
-
-            <div class="col-lg-6 col-6">
-                <div class="small-box bg-success">
-                    <div class="inner">
-                        <h3>{{ $movieCount }}</h3>
-                        <p>Total Movies</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-film"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
                 </div>
-            </div>
-
-            <!-- Average Age of Users -->
-            <div class="col-lg-6 col-6">
-                <div class="small-box bg-warning">
-                    <div class="inner">
-                        <h3>{{ number_format($averageAge, 1) }}</h3>
-                        <p>Average Age of Users</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-
-            <!-- Most Common Country -->
-            <div class="col-lg-6 col-6">
-                <div class="small-box bg-danger">
-                    <div class="inner">
-                        <h3>{{ $mostCommonCountry->country }}</h3>
-                        <p>Most Users From: {{ $mostCommonCountry->count }} Users</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-earth"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-
-            <!-- Most Common Gender -->
-            <div class="col-lg-6 col-6">
-                <div class="small-box bg-purple">
-                    <div class="inner">
-                        <h3>{{ ucfirst($mostCommonGender->gender) }}</h3>
-                        <p>Most Common Gender: {{ $mostCommonGender->count }} Users</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-ios-people"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
+
+        <div class="col-lg-6 col-6">
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <h3>{{ $movieCount }}</h3>
+                    <p>Total Movies</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-film"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Average Age of Users -->
+        <div class="col-lg-6 col-6">
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>{{ $averageAge ? number_format($averageAge, 1) : 'N/A' }}</h3>
+                    <p>Average Age of Users</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Most Common Country -->
+        <div class="col-lg-6 col-6">
+            <div class="small-box bg-danger">
+                <div class="inner">
+                    <h3>{{ $mostCommonCountry ? $mostCommonCountry->country : 'N/A' }}</h3>
+                    <p>Most Users From: {{ $mostCommonCountry ? $mostCommonCountry->count . ' Users' : 'No data available' }}</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-earth"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Most Common Gender -->
+        <div class="col-lg-6 col-6">
+            <div class="small-box bg-purple">
+                <div class="inner">
+                    <h3>{{ $mostCommonGender ? ucfirst($mostCommonGender->gender) : 'N/A' }}</h3>
+                    <p>Most Common Gender: {{ $mostCommonGender ? $mostCommonGender->count . ' Users' : 'No data available' }}</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-ios-people"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+    </div>
 
 
     <div class="row">
