@@ -48,15 +48,19 @@ class GenreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            // Add validation rules for other fields as needed
-        ]);
+        try {
+            $validatedData = $request->validate([
+                'name' => 'required|string|max:255',
+                // Add validation rules for other fields as needed
+            ]);
 
-        $genre = Category::findOrFail($id);
-        $genre->update($validatedData);
+            $genre = Category::findOrFail($id);
+            $genre->update($validatedData);
 
-        return redirect()->route('admin.genres.index')->with('success', 'Genre details updated successfully');
+            return redirect()->route('admin.genres.index')->with('success', 'Genre details updated successfully');
+        } catch (\Exception $e) {
+            return redirect()->route('admin.genres.index')->with('error', 'Update failed: ' . $e->getMessage());
+        }
     }
 
     /**

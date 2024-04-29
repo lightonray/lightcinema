@@ -87,5 +87,28 @@
         $('#deleteGenreForm').attr('action', '/genres/' + genreId); // Assuming your delete route is '/genres/{id}'
         $('#deleteGenreModal').modal('show');
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const successMessage = "{{ session('success') }}";
+    const errorMessage = "{{ session('error') }}";
+
+    if (successMessage) {
+        Swal.fire({
+            title: 'Success!',
+            text: successMessage,
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+    }
+
+        if (errorMessage) {
+            Swal.fire({
+                title: 'Error!',
+                text: errorMessage,
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+    });
 </script>
 @endpush
